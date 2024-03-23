@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icon.svg">
 
 </head>
   <body>
@@ -14,10 +15,14 @@
   <div id="chat"></div>
   <div id="inputmask">
     <textarea id = userinput rows="1" type="text"></textarea> 
-    <button>send</button>
+    <button id="sendbtn">send</button>
+    <button id="resetbtn">reset</button>
   </div>
   </body>
 </html>
 
-<script src="script.js"></script>
+<script src="store.js"></script>
+<script src="api_connection.js"></script>
+<script module src="script.js"></script>
+
 
