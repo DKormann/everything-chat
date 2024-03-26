@@ -32,7 +32,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3 # This action will handle the deployment to gh-pages
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/build # Adjust the publish directory path
+          publish_dir: ./build # Adjust the publish directory path relative to the frontend directory
           publish_branch: gh-pages
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
