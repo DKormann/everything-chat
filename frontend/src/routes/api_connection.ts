@@ -1,5 +1,5 @@
 
-const backend_url = "http://localhost:5000/"
+const backend_url = "http://46.101.208.197:5000/"
 
 import type {Message} from "./chat"
 
