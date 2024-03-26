@@ -107,7 +107,7 @@ export function mount(){
 
   input.addEventListener('keyup', (e)=>{
     if(e.key == 'Enter' && e.shiftKey){
-      push_message(input.value)
+      push_message(input.value.slice(0,-1))
       input.value = ''
       return
     }
