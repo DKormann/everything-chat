@@ -15,6 +15,9 @@
   import {onMount } from "svelte";
   import {mount} from "./chat"
   onMount(mount)
+  import { get_embeddings } from "./api_connection";
+  get_embeddings(["hello"]).then(emb=>console.log(emb))
+  
 </script>
 
 
