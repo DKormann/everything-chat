@@ -39,7 +39,6 @@ class Bubble{
   }
   setContent(content: string){
     this.element.innerHTML = ""
-
     
     let txt = document.createElement("div")
     txt.classList.add("text")
@@ -62,7 +61,18 @@ class Bubble{
 const bubbles = new Map<string, Bubble>()
 function createKey(){return Math.random().toString(36).slice(-8)}
 
+function handle_command(content:string){
+  new Bubble(new Writable<Message>("M_"+createKey(), {role: 'user', content, parent_key: "", key: "", child_keys: []}))
+  let cmd = content.slice(1)
+  let words = cmd.split(' ')
+  cmd = words[0]
+  let payload = words.slice(1)
+  new Bubble(new Writable<Message>("M_"+createKey(), {role: 'assistant', content: 'Command received: '+cmd, parent_key: "", key: "", child_keys: []}))
+
+}
+
 function push_message(content:string){
+  if (content.startsWith('/')) return handle_command(content)
   let key = "M_"+createKey()
   let msg = new Writable<Message>(key, {role: 'user', content, parent_key: last_message.value, key, child_keys: []})
   messages.set(key, msg)
